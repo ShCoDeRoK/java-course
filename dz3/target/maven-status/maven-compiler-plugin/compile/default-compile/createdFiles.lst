@@ -1,0 +1,11 @@
+ru/mipt/java2017/hw3/Parser/XLSXReader.class
+ru/mipt/java2017/hw3/Application/DataWriter.class
+ru/mipt/java2017/hw3/Application/DataAccess.class
+ru/mipt/java2017/hw3/DataBaseUpdater.class
+ru/mipt/java2017/hw3/Application/DataFinder.class
+ru/mipt/java2017/hw3/Models/Author.class
+ru/mipt/java2017/hw3/Parser/XLSXParser.class
+ru/mipt/java2017/hw3/Models/Book.class
+ru/mipt/java2017/hw3/Application/DataUpdater.class
+ru/mipt/java2017/hw3/Parser/XLSXWriter.class
+ru/mipt/java2017/hw3/Models/BookAuthor.class
