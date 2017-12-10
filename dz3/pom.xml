@@ -18,6 +18,29 @@
           <target>1.8</target>
         </configuration>
       </plugin>
+      <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>exec-maven-plugin</artifactId>
+        <version>1.6.0</version>
+        <goals>
+          <goal>java</goal>
+        </goals>
+        <executions>
+          <execution>
+            <id>task3</id>
+            <configuration>
+              <mainClass>ru.mipt.java2017.hw3.DatabaseUpdater</mainClass>
+            </configuration>
+          </execution>
+          <execution>
+            <id>task4</id>
+            <configuration>
+              <mainClass>ru.mipt.java2017.hw3.AdvancedDatabaseUpdater</mainClass>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
+
     </plugins>
   </build>
 

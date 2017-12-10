@@ -15,21 +15,12 @@ import javax.persistence.Persistence;
 import java.util.HashMap;
 import java.util.Map;
 
-public class DataAccess {
+public class Access {
 
-  private final Logger logger = LoggerFactory.getLogger("DATABASE ACCESS");
   private static SessionFactory sessionFactory;
   Session session;
   private static EntityManagerFactory entityManagerFactory;
   public EntityManager entityManager;
-
-  public DataAccess(String connectionString) {
-    session = null;
-    entityManager = null;
-    StaticAdd(connectionString);
-    session = sessionFactory.openSession();
-    entityManager = entityManagerFactory.createEntityManager();
-  }
 
   static private void StaticAdd(String connection) {
     Configuration configuration = new Configuration();
@@ -41,6 +32,14 @@ public class DataAccess {
     Map<String, String> map = new HashMap<>();
     map.put("hibernate.connection.url", connection);
     entityManagerFactory = Persistence.createEntityManagerFactory("myDb", map);
+  }
+
+  public Access(String connectionString) {
+    session = null;
+    entityManager = null;
+    StaticAdd(connectionString);
+    session = sessionFactory.openSession();
+    entityManager = entityManagerFactory.createEntityManager();
   }
 
   public static void shutdown() {

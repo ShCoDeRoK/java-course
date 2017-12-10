@@ -11,27 +11,27 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 
-public class XLSXReader {
+public class Reader {
 
-  private static final Logger logger = LoggerFactory.getLogger("Excel Reader");
+  private static final Logger logger = LoggerFactory.getLogger("Reader");
 
   private Workbook workbook;
   private Sheet sheet;
 
-  public static XLSXReader createReader(String filename) {
+  public static Reader createReader(String filename) {
     try {
-      return new XLSXReader(filename);
+      return new Reader(filename);
     } catch (FileNotFoundException e) {
       logger.info(filename);
-      logger.error("File was not found;");
+      logger.error("File was not found!");
     } catch (IOException e) {
-      logger.error("Reading error ", e.getMessage());
+      logger.error("error: ", e.getMessage());
     }
 
     return null;
   }
 
-  private XLSXReader(String filename) throws IOException {
+  private Reader(String filename) throws IOException {
     FileInputStream fileInputStream = new FileInputStream(new File(filename));
     workbook = new XSSFWorkbook(fileInputStream);
     sheet = workbook.getSheetAt(0);

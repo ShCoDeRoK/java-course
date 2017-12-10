@@ -6,23 +6,23 @@ import ru.mipt.java2017.hw3.Models.Book;
 import ru.mipt.java2017.hw3.Models.BookAuthor;
 import javax.persistence.EntityManager;
 
-public class DataWriter {
+public class Writer {
 
-  DataAccess dataAccess;
+  Access dataAccess;
   Session session;
   EntityManager entityManager;
-
-  public DataWriter(DataAccess dataAccess) {
-    this.dataAccess = dataAccess;
-    session = dataAccess.session;
-    entityManager = dataAccess.entityManager;
-  }
 
   public Long WriteToDatabase(Author author) {
     dataAccess.entityManager.getTransaction().begin();
     dataAccess.entityManager.persist(author);
     dataAccess.entityManager.getTransaction().commit();
     return author.getID();
+  }
+
+  public void WriteToDatabase(BookAuthor bookAuthor) {
+    dataAccess.entityManager.getTransaction().begin();
+    dataAccess.entityManager.persist(bookAuthor);
+    dataAccess.entityManager.getTransaction().commit();
   }
 
   public Long WriteToDatabase(Book book) {
@@ -32,9 +32,9 @@ public class DataWriter {
     return book.getID();
   }
 
-  public void WriteToDatabase(BookAuthor bookAuthor) {
-    dataAccess.entityManager.getTransaction().begin();
-    dataAccess.entityManager.persist(bookAuthor);
-    dataAccess.entityManager.getTransaction().commit();
+  public Writer(Access dataAccess) {
+    this.dataAccess = dataAccess;
+    session = dataAccess.session;
+    entityManager = dataAccess.entityManager;
   }
 }

@@ -11,24 +11,16 @@ import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Predicate;
 import java.util.List;
 
-public class DataFinder {
+public class Finder {
 
-  DataAccess dataAccess;
+  Access dataAccess;
   Session session;
   EntityManager entityManager;
 
-  public DataFinder(DataAccess dataAccess) {
+  public Finder(Access dataAccess) {
     this.dataAccess = dataAccess;
     session = dataAccess.session;
     entityManager = dataAccess.entityManager;
-  }
-
-  public boolean FindFromDatabase(Book book) {
-    CriteriaBuilder criteriaBuilder = entityManager.getCriteriaBuilder();
-    CriteriaQuery<Book> query = criteriaBuilder.createQuery(Book.class);
-    Predicate isbnEqual = criteriaBuilder.equal(query.from(Book.class).get("ISBN"), book.getISBN());
-    query.where(isbnEqual);
-    return !entityManager.createQuery(query).getResultList().isEmpty();
   }
 
   public Long getAuthor(Author author) {
@@ -62,5 +54,13 @@ public class DataFinder {
     CriteriaQuery<Book> query = criteriaBuilder.createQuery(Book.class);
     query.select(query.from(Book.class));
     return entityManager.createQuery(query).getResultList();
+  }
+
+  public boolean FindFromDatabase(Book book) {
+    CriteriaBuilder criteriaBuilder = entityManager.getCriteriaBuilder();
+    CriteriaQuery<Book> query = criteriaBuilder.createQuery(Book.class);
+    Predicate isbnEqual = criteriaBuilder.equal(query.from(Book.class).get("ISBN"), book.getISBN());
+    query.where(isbnEqual);
+    return !entityManager.createQuery(query).getResultList().isEmpty();
   }
 }

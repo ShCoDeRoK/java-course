@@ -18,20 +18,20 @@ public class BookAuthor {
     return BookId;
   }
 
-  public void setBookId(Long bookId) {
-    this.BookId = bookId;
-  }
-
   public Long getAuthorId() {
     return AuthorId;
   }
 
-  public void setAuthorId(Long authorId) {
-    this.AuthorId = authorId;
-  }
-
   public int getOrderNumber() {
     return OrderNumber;
+  }
+
+  public void setBookId(Long bookId) {
+    this.BookId = bookId;
+  }
+
+  public void setAuthorId(Long authorId) {
+    this.AuthorId = authorId;
   }
 
   public void setOrderNumber(int orderNumber) {

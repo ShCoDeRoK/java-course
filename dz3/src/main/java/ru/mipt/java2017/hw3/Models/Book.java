@@ -16,24 +16,24 @@ public class Book {
     return ID;
   }
 
-  public BigDecimal getISBN() {
+  public Long getISBN() {
     return ISBN;
-  }
-
-  public void setISBN(BigDecimal ISBN) {
-    this.ISBN = ISBN;
   }
 
   public String getTitle() {
     return Title;
   }
 
-  public void setTitle(String title) {
-    this.Title = title;
-  }
-
   public String getCover() {
     return Cover;
+  }
+
+  public void setISBN(Long isbn) {
+    this.ISBN = isbn;
+  }
+
+  public void setTitle(String title) {
+    this.Title = title;
   }
 
   public void setCover(String cover) {
@@ -41,7 +41,7 @@ public class Book {
   }
 
   @Column(name="ISBN", scale = 13)
-  private BigDecimal ISBN;
+  private Long ISBN;
 
   @Column(name="title", length = 100)
   private String Title;
